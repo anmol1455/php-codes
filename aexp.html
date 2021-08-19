@@ -1,0 +1,20 @@
+<html>
+<head>
+<script>
+	function fun()
+	{
+	var v=document.getElementById("num").value;
+	var x=new XMLHttpRequest();
+	
+	x.onreadystatechange=function(){if(this.status==200 && this.readyState==4)
+	document.getElementById("msg").innerHTML=this.responseText;else{document.getElementById("msg").innerHTML="error";}};
+	x.open("GET","data.php?q="+v,true);
+	x.send();
+	}
+</script>
+</head>
+<body>
+<label>Enter Id</label><input id="num" type="text" onkeyup="fun()">
+<p id="msg">output</p>
+</body>
+</html>
